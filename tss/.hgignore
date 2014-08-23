@@ -1,0 +1,8 @@
+build
+data
+tmp
+.class
+.checkstyle
+.idea
+.project
+.DS_Store

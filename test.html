@@ -68,6 +68,9 @@
 	 l16 <dddd>bbbbgggg
 #END
     </script>
-    <script src="chime-0.1.min.js"></script>
+    <script src="chime-0.1.cat.js"></script>
+	<script>
+		chime.bgm({ tsd: new TssCompiler().compile(document.getElementById('src').textContent) });
+	</script>
   </body>
 </html>
