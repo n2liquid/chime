@@ -2,7 +2,7 @@
  * @constructor
  */
 window['chime'] = new (function chime() {
-  this.looper = new AudioLooper();
+  this.looper = new AudioLooper(1024);
   this.master = new MasterChannel();
   this.master.setVolume(1.0);
   this.looper.setChannel(this.master);
@@ -15,7 +15,10 @@ window['chime'] = new (function chime() {
     this.player[n].device.setPlayer(this.player[n]);
     this.master.addChannel(this.player[n].device);
   }
-  for (var i = 0; i <= this.effects; ++i) this.setupChannel(i); })(); window['chime']['setMaxEffect'] = function(n) {
+  for (var i = 0; i <= this.effects; ++i) this.setupChannel(i);
+})();
+
+window['chime']['setMaxEffect'] = function(n) {
   if (window['chime'].effects < n) {
     for (var i = window['chime'].effects + 1; i <= n; ++i) {
       window['chime'].setupChannel(i);
